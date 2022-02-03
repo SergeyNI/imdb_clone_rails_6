@@ -1,0 +1,10 @@
+.container
+  .row
+    .col
+      .row
+        .col
+          %h1= @film.title          
+      = video_tag(rails_blob_url(@film.video, disposition: :attachment), "controls" => true)    
+      %p.mt-2.card-text= @film.content
+    
+  

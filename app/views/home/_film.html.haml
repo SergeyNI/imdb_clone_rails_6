@@ -1,0 +1,25 @@
+-# .row
+-#   .col
+-#   .col
+-#     .row 
+-#       .col
+-#         =link_to "/film/#{film.id}",class:'nav-link text-secondary ' do
+-#           %h2= film.title
+-#       .col-2
+-#         = rating_for film, 'rate', star: 5
+-#     = video_tag(rails_blob_url(film.video, disposition: :attachment), "controls" => true)    
+-#     -# %p.mt-2.card-text= film.content
+-#     -# =link_to "film details", "/film/#{film.id}"
+-#   .col
+.card(style="width: 400px;")
+  .card-img-top
+    = video_tag(rails_blob_url(film.video, disposition: :attachment), "controls" => true,width: 400)
+  .card-body
+    .row 
+      .col
+        =link_to "/film/#{film.id}",class:'nav-link text-secondary ' do
+          .card-title= film.title
+      .col-4
+        = rating_for film, 'rate', star: 5 
+
+  
