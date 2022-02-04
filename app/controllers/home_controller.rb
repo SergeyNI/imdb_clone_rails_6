@@ -26,7 +26,7 @@ class HomeController < ApplicationController
   
   private
   def set_film
-    @film = Movie.find(params[:id])
+    @film = Movie.friendly.find(params[:id])
     
   end
   
