@@ -10,8 +10,9 @@ import "channels"
 import * as bootstrap from "bootstrap"
 import jquery from 'jquery'
 
-window.jQuery = jquery
-window.$ = jquery
+
+// window.jQuery = jquery
+// window.$ = jquery
 require('./jquery.raty')
 require('./ratyrate.js.erb')
 
@@ -19,3 +20,10 @@ require('./ratyrate.js.erb')
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+// $(document).on('turbolinks:load',function(){
+//   $(".star").raty()
+// })
+$(document).on('turbolinks:load',$(".star").init)
+
+// $(document).ready($.raty());
+// $(document).on('page:change',$(".star").raty());

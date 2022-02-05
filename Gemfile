@@ -74,3 +74,4 @@ gem "ratyrate", "~> 1.2.alpha"
 
 gem "pg"
 gem 'friendly_id', '~> 5.4.0'
+gem "activeadmin"

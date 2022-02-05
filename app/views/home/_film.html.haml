@@ -11,9 +11,9 @@
 -#     -# %p.mt-2.card-text= film.content
 -#     -# =link_to "film details", "/film/#{film.id}"
 -#   .col
-.card(style="width: 400px;")
+.card(style="width: 450px;")
   .card-img-top
-    = video_tag(rails_blob_url(film.video, disposition: :attachment), "controls" => true,width: 400)
+    = video_tag(rails_blob_url(film.video, disposition: :attachment), "controls" => true,width: 450)
   .card-body
     .row 
       .col

@@ -15,3 +15,4 @@ Category.create(name: "blockbaster")
 Category.create(name: "romantic")
 
 
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

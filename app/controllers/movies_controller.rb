@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: %i[ show edit update destroy ]
   before_action :select_categories, only: %i[index new edit create]
-  # before_action :authenticate_user!
+  before_action :authenticate_admin_user!
   # GET /movies or /movies.json
   def index
     @movies = Movie.all
@@ -63,7 +63,7 @@ class MoviesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_movie
-      @movie = Movie.find(params[:id])
+      @movie = Movie.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

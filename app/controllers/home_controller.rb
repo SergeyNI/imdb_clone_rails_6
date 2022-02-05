@@ -5,8 +5,10 @@ class HomeController < ApplicationController
     @categories = Category.all
         
     @movies = Movie.page(params[:page])
+    @category = Category.new
     if params[:category_id]
-      @movies = @movies.where(category_id: params[:category_id]) 
+      @category = Category.friendly.find params[:category_id]
+      @movies = @movies.where(category_id: @category.id) 
     end
     
   end

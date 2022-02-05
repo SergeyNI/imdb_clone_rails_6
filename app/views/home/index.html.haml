@@ -1,13 +1,13 @@
 .container{"data-controller":"films"}
   .row
     .col-2
-      %nav.nav.nav-pills.flex-column
+      %ul.nav.nav-pills.flex-column
         %li.nav-item
-          = link_to "All categories", home_index_path(), class:"nav-link"
+          = link_to "All categories", home_index_path(), class:"nav-link #{ 'active' unless @category.id}"
         - @categories.each do |category|
           %li.nav-item
-            = link_to category.name, home_index_path(category_id: category.friendly_id), class:"nav-link"
-            -# %a.nav-link(aria-current="page" data-action="click->films#setCategory" href="#" data-films-target="source" data-films-category-value="#{category.id}")=category.name
+            - current_category = @category.id === category.id
+            = link_to category.name, home_index_path(category_id: category.friendly_id), class:"nav-link #{'active' if current_category}"
     .col
       %div()
         = render partial: 'film', collection: @movies
@@ -15,9 +15,6 @@
     .col-2 
     .col
       = paginate @movies
-      -# %nav
-      -#   %ul.pagination
-      -#     %li.page-item
-      -#       %a.page-link(data-action="click->films#setPage" data-films-page-value = 1) First 
+      
 
 

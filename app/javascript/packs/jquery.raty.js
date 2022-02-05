@@ -17,6 +17,7 @@
     init: function(options) {
       return this.each(function() {
         this.self = $(this);
+        console.log(this);
 
         methods.destroy.call(this.self);
 
