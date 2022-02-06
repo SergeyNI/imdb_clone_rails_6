@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
   before_action :authenticate_admin_user!
   # GET /movies or /movies.json
   def index
-    @movies = Movie.all
+    @movies = Movie.includes(:category).all
   end
 
   # GET /movies/1 or /movies/1.json

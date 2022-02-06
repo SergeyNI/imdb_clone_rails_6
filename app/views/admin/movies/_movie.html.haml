@@ -1,0 +1,8 @@
+
+= semantic_form_for [:admin, @movie], builder: ActiveAdmin::FormBuilder do |f|
+  = f.inputs "Studio" do
+    = f.input :title
+    = f.text :content
+    = f.file :video 
+  = f.actions
+  

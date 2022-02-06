@@ -1,11 +1,11 @@
 %h1 Listing movies
 
-%table
+%table.table.table-striped
   %thead
     %tr
-      %th Title
-      %th Content
-      %th Category
+      %th.col Title
+      %th.col Content
+      %th.col Category
       %th
       %th
       %th
@@ -15,11 +15,11 @@
       %tr
         %td= movie.title
         %td= movie.content
-        %td= movie.category
-        %td= link_to 'Show', movie
-        %td= link_to 'Edit', edit_movie_path(movie)
-        %td= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= movie.category.name
+        %td= link_to 'Show', movie,class:"nav-link"
+        %td= link_to 'Edit', edit_movie_path(movie),class:"nav-link"
+        %td= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' },class:"nav-link"
 
 %br
 
-= link_to 'New Movie', new_movie_path
+= link_to 'New Movie', new_movie_path,class:"nav-link"
