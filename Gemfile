@@ -49,7 +49,12 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'shoulda-matchers', '~> 5.0'
+  gem 'rails-controller-testing'
 end
+
+
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -58,7 +63,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem "rspec-rails"
+  gem 'rspec-rails', '~> 5.0.0'
   gem "factory_bot_rails"
   gem "faker"
   gem 'pry'
@@ -75,3 +80,4 @@ gem "ratyrate", "~> 1.2.alpha"
 gem "pg"
 gem 'friendly_id', '~> 5.4.0'
 gem "activeadmin"
+gem 'active_storage_validations'

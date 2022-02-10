@@ -1,4 +1,4 @@
-.container{"data-controller":"films"}
+.mt-4.pt-2
   .row
     .col-2
       %ul.nav.nav-pills.flex-column
@@ -8,12 +8,11 @@
           %li.nav-item
             - current_category = @category.id === category.id
             = link_to category.name, home_index_path(category_id: category.friendly_id), class:"nav-link #{'active' if current_category}"
-    .col
-      %div()
-        = render partial: 'film', collection: @movies
+    .col.d-flex.flex-row.flex-wrap
+      = render partial: 'film', collection: @movies
   .row
     .col-2 
-    .col
+    .col.my-3
       = paginate @movies
       
 

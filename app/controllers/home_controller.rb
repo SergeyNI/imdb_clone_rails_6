@@ -9,39 +9,20 @@ class HomeController < ApplicationController
     if params[:category_id]
       @category = Category.friendly.find params[:category_id]
       @movies = @movies.where(category_id: @category.id) 
-    end
-    
+    end    
   end
-
-  # def films
-  #   render partial: 'film', collection: movies
-  # end
-
-  # def count_films
-  #   render json: movies_by_category.count
-  # end
-
-  def film
-    
-  end
-
   
+  def film
+  end
+ 
   private
   def set_film
     @film = Movie.friendly.find(params[:id])
-    
+  rescue ActiveRecord::RecordNotFound
+    # ApplicationController.index
+    flash[:notice] = "film #{params[:id]} not found"
+    redirect_to action: 'index'
   end
   
-  # def movies
-  #   movies_by_category.page(params[:page])
-  # end
-  # def movies_by_category
-  #   if params[:category_id].to_i.zero?
-  #     @movies = Movie.all
-  #   else
-  #     @movies = Movie.where(category_id: params[:category_id])
-  #   end
-  #   @movies
-  # end
 
 end

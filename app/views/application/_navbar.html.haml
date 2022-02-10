@@ -7,12 +7,14 @@
     -#   <span class="navbar-toggler-icon"></span>
     -# </button>
     .collapse.navbar-collapse#navbarText
-      %ul.navbar-nav.me-auto.mb-2.mb-lg-0
+      %ul.navbar-nav.me-auto.mb-2.mb-lg-0.d-flex
         -unless user_signed_in?
           %li.nav-item= link_to "login", new_user_session_path, class: "nav-link"
         -if user_signed_in?
           %li.nav-item= link_to "Logout", destroy_user_session_path, class: "nav-link"
+      %ul.navbar-nav.mb-2.mb-lg-0.d-flex.ml-auto
         -unless admin_user_signed_in?
           %li.nav-item= link_to "admin login", new_admin_user_session_path, class: "nav-link"
         -if admin_user_signed_in?
+          %li.nav-item= link_to "Movies", movies_path, class: "nav-link"
           %li.nav-item= link_to "admin Logout", destroy_admin_user_session_path, class: "nav-link"

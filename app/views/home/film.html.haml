@@ -1,12 +1,12 @@
-.container
-  .row
-    .col
-      .row
-        .col-1= rating_for @film, "rate", disable_after_rate: true, imdb_avg: true
-        .col
-          %h1.mt-2= @film.title
-        -#   = rating_for @film, "rate", disable_after_rate: true, imdb_avg: true
-      = video_tag(rails_blob_url(@film.video, disposition: :attachment), "controls" => true)
-      %p.mt-2.card-text= @film.content
+
+.row.mt-3.pb-5
+  .col
+    .row
+      .col-2= rating_for @film, "rate", disable_after_rate: true, imdb_avg: true
+      .col
+        %h1.mt-2= @film.title
+      -#   = rating_for @film, "rate", disable_after_rate: true, imdb_avg: true
+    = video_tag(rails_blob_url(@film.video, disposition: :attachment), "controls" => true)
+    %p.mt-2.p-4.card-text= @film.content
     
   
