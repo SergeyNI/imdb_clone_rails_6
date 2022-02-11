@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.feature "HomePages", type: :feature do
-  pending "add some scenarios (or delete) #{__FILE__}"
+  describe 'plain visit' do
+    it do
+      visit '/'
+      byebug
+    end
+  end
 end
