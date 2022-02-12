@@ -1,0 +1,11 @@
+.container
+  .row
+    .col
+      %h1 Editing category
+
+      = render 'form'
+  .row 
+    .col-1
+      = link_to 'Show', @category,class:'nav-link'
+    .col-1
+      = link_to 'Back', categories_path,class:'nav-link'

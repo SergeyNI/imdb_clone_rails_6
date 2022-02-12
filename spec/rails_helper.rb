@@ -8,8 +8,9 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 
 require_relative 'support/controller_macros' 
-require_relative "support/chrome"
 require 'capybara/rspec'
+require_relative "support/chrome"
+# require_relative "support/wait_for_ajax"
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -51,6 +52,9 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, :type => :controller
   config.include FactoryBot::Syntax::Methods
   config.extend ControllerMacros, :type => :controller
+
+  config.include Warden::Test::Helpers
+  Warden.test_mode!
   # config.include Devise::Test::ControllerHelpers, type: :view
 
   # You can uncomment this line to turn off ActiveRecord support entirely.

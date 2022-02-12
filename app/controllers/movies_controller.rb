@@ -2,25 +2,25 @@ class MoviesController < ApplicationController
   before_action :set_movie, only: %i[ show edit update destroy ]
   before_action :select_categories, only: %i[index new edit create]
   before_action :authenticate_admin_user!
-  # GET /movies or /movies.json
+  # GET /categories or /categories.json
   def index
     @movies = Movie.includes(:category).all
   end
 
-  # GET /movies/1 or /movies/1.json
+  # GET /categories/1 or /categories/1.json
   def show
   end
 
-  # GET /movies/new
+  # GET /categories/new
   def new
     @movie = Movie.new
   end
 
-  # GET /movies/1/edit
+  # GET /categories/1/edit
   def edit
   end
 
-  # POST /movies or /movies.json
+  # POST /categories or /categories.json
   def create
     @movie = Movie.new(movie_params)
     
@@ -37,7 +37,7 @@ class MoviesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /movies/1 or /movies/1.json
+  # PATCH/PUT /categories/1 or /categories/1.json
   def update
     respond_to do |format|
       if @movie.update(movie_params)
@@ -50,7 +50,7 @@ class MoviesController < ApplicationController
     end
   end
 
-  # DELETE /movies/1 or /movies/1.json
+  # DELETE /categories/1 or /categories/1.json
   def destroy
     @movie.destroy
 
@@ -63,7 +63,7 @@ class MoviesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_movie
-      @movie = Movie.find(params[:id])
+      @movie = Movie.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

@@ -17,4 +17,5 @@
           %li.nav-item= link_to "admin login", new_admin_user_session_path, class: "nav-link"
         -if admin_user_signed_in?
           %li.nav-item= link_to "Movies", movies_path, class: "nav-link"
+          %li.nav-item= link_to "Categories", categories_path, class: "nav-link"
           %li.nav-item= link_to "admin Logout", destroy_admin_user_session_path, class: "nav-link"

@@ -1,7 +1,7 @@
 
 = form_for @movie do |f|
   - if @movie.errors.any?
-    #error_explanation
+    .alert.alert-danger
       %h2= "#{pluralize(@movie.errors.count, "error")} prohibited this movie from being saved:"
       %ul
         - @movie.errors.full_messages.each do |message|
