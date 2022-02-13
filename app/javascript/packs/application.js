@@ -8,8 +8,12 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import * as bootstrap from "bootstrap"
+// import '../stylesheets/application'
 import jquery from 'jquery'
 import './jquery.raty'
+// import '../src/ratyrate.js.erb'
+const importAll = (r) => r.keys().map(r)
+importAll(require.context('../images', false, /\.(png|jpe?g|svg)$/));
 
 
 // window.jQuery = jquery
@@ -25,7 +29,7 @@ ActiveStorage.start()
 // $(document).on('turbolinks:load',function(){
 //   $(".star").raty()
 // })
-// $(document).on('turbolinks:load',$(".star").init)
+$(document).on('turbolinks:load',$(".star").init)
 
 // $(document).ready($.raty());
 // $(document).on('page:change',$(".star").raty());
