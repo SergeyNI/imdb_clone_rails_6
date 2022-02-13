@@ -9,15 +9,21 @@
 if User.all.count.zero?
   1.upto 10 do |count|
     user = User.create!(email: "user#{count}@example.com",password: "userpwd#{count}") 
-    puts(user.email)
+    puts("created user #{user.email}")
   end
 end
 if Category.all.count.zero?
-  Category.create(name: "fantasy")
-  Category.create(name: "blockbaster")
-  Category.create(name: "romantic")
+  names = %w[fantasy blockbaster romantic]
+  names.each do |name|
+    category = Category.create!(name: name)
+    puts("created category #{category}")
+  end 
 end
 
 
 # if AdminUser.all.count.zero?
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+unless AdminUser.find_by(email:'admin@example.com')
+  admin = AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') # if Rails.env.development?
+  puts "created admin #{admin.email}"
+
+end
