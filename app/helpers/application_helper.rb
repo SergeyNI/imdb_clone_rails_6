@@ -3,7 +3,6 @@ module ApplicationHelper
     cached_average = rateable_obj.average dimension
     avg = cached_average ? cached_average.avg : 0
     url = asset_pack_path("media/images/big-star.png")
-    # content_tag :div, '', :style => "background-image:url(/assets/big-star.png);width:81px;height:81px;margin-top:10px;" do
     content_tag :div, '', :style => "background-image:url(#{url});width:81px;height:81px;margin-top:10px;" do
       content_tag :p, avg, :style => "position:relative;line-height:85px;text-align:center;"
     end

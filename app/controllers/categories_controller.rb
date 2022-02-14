@@ -5,20 +5,20 @@ class CategoriesController < InheritedResources::Base
     @categories = Category.all
   end
 
-  # GET /movies/1 or /movies/1.json
+  # GET /categories/1 or /categories/1.json
   def show
   end
 
-  # GET /movies/new
+  # GET /categories/new
   def new
     @category = Category.new
   end
 
-  # GET /movies/1/edit
+  # GET /categories/1/edit
   def edit
   end
 
-  # POST /movies or /movies.json
+  # POST /categories or /categories.json
   def create
     @category = Category.new(category_params)
     
@@ -35,7 +35,7 @@ class CategoriesController < InheritedResources::Base
     end
   end
 
-   # PATCH/PUT /movies/1 or /movies/1.json
+   # PATCH/PUT /categories/1 or /categories/1.json
   def update
     respond_to do |format|
       if @category.update(movie_params)
@@ -48,7 +48,7 @@ class CategoriesController < InheritedResources::Base
     end
   end
 
-  # DELETE /movies/1 or /movies/1.json
+  # DELETE /categories/1 or /categories/1.json
   def destroy
     @category.destroy
 
@@ -60,7 +60,6 @@ class CategoriesController < InheritedResources::Base
   private
 
     def category_params
-      # params.require(:category).permit()
       params.require(:category).permit(:name)
     end
     def set_category

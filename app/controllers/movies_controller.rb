@@ -2,25 +2,25 @@ class MoviesController < ApplicationController
   before_action :set_movie, only: %i[ show edit update destroy ]
   before_action :select_categories, only: %i[index new edit create]
   before_action :authenticate_admin_user!
-  # GET /categories or /categories.json
+  # GET /movies or /movies.json
   def index
     @movies = Movie.includes(:category).all
   end
 
-  # GET /categories/1 or /categories/1.json
+  # GET /movies/1 or /movies/1.json
   def show
   end
 
-  # GET /categories/new
+  # GET /movies/new
   def new
     @movie = Movie.new
   end
 
-  # GET /categories/1/edit
+  # GET /movies/1/edit
   def edit
   end
 
-  # POST /categories or /categories.json
+  # POST /movies or /movies.json
   def create
     @movie = Movie.new(movie_params)
     
@@ -37,7 +37,7 @@ class MoviesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /categories/1 or /categories/1.json
+  # PATCH/PUT /movies/1 or /movies/1.json
   def update
     respond_to do |format|
       if @movie.update(movie_params)
@@ -50,7 +50,7 @@ class MoviesController < ApplicationController
     end
   end
 
-  # DELETE /categories/1 or /categories/1.json
+  # DELETE /movies/1 or /movies/1.json
   def destroy
     @movie.destroy
 

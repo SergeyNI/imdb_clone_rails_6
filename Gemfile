@@ -81,3 +81,4 @@ gem "pg"
 gem 'friendly_id', '~> 5.4.0'
 gem "activeadmin"
 gem 'active_storage_validations'
+gem "google-cloud-storage", "~> 1.11", require: false
