@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+  movies:
+    error:
+      not_found: "Movie not found by id '%{id}'"

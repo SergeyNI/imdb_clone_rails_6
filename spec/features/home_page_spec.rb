@@ -21,7 +21,7 @@ RSpec.feature "HomePages", type: :feature do
       visit '/'
       within '.card' do
         click_link @movie.title
-        expect(page).to have_current_path("/film/"+@movie.friendly_id)
+        expect(page).to have_current_path("/films/"+@movie.friendly_id)
       end
     end
   end
@@ -46,18 +46,16 @@ RSpec.feature "HomePages", type: :feature do
         visit '/'
         within 'div[class="star"][data-readonly="false"]' do
           element = page.find('img[alt="4"]')
-          element.click         
+          element.click
         end
 
         within 'div[class="star"]' do
           
           element = page.find('img[alt="4"]')
           src = element[:src]
-          expect(src).to include('star-on.png')
+          expect(src).to include('star-on')
          
         end
-        
-        # expect(page).to have_selector('div[class="star"][data-readonly="false"]')
       end
       after(:all) do
         Capybara.current_driver = Capybara.use_default_driver

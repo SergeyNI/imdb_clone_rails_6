@@ -43,9 +43,10 @@ RSpec.describe MoviesController, :type => :controller do
       end
 
       describe 'show' do
+        
         it  do
-          get 'show', params: {id: @movie.id}
-          expect(response).to redirect_to('/admin/login')
+          get 'show', params: {id: @movie.friendly_id}
+          expect(response).to render_template("show")
         end
         
       end
@@ -122,5 +123,6 @@ RSpec.describe MoviesController, :type => :controller do
     
 
   end
+  
 
 end

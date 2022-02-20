@@ -24,8 +24,6 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)
     
-    # binding.pry
-    
     respond_to do |format|
       if @movie.save
         format.html { redirect_to movie_url(@movie), notice: "Movie was successfully created." }
@@ -64,6 +62,10 @@ class MoviesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_movie
       @movie = Movie.friendly.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:notice] = I18n.t "movies.error.not_found",id: params[:id]
+      redirect_to action: 'index'
+    
     end
 
     # Only allow a list of trusted parameters through.
